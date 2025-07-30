@@ -1,0 +1,10 @@
+src/__pycache__/circle.cpython-312.pyc
+src/__pycache__/rectangle.cpython-312.pyc
+src/__pycache__/shape.cpython-312.pyc
+venv/lib64
+venv/pyvenv.cfg
+venv/bin/activate
+venv/bin/activate.csh
+venv/bin/activate.fish
+venv/bin/Activate.ps1
+venv/*

@@ -19,16 +19,12 @@ paddle_width = 40
 paddle_height = 200
 ball_radius = 30
 ball_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-# paddle1_pos = pygame.Vector2(0, screen.get_height() / 2 - paddle_height / 2)
-# paddle2_pos = pygame.Vector2(screen.get_width() - 40, screen.get_height() / 2 - paddle_height / 2)
-
 paddle1 = Rectangle(0, screen.get_height() / 2, paddle_width, paddle_height, 1280, 720, 0)
 paddle2 = Rectangle(screen.get_width() - 40, screen.get_height() / 2, paddle_width, paddle_height, 1280, 720, 0)
 ball = Circle(ball_pos.x, ball_pos.y, ball_radius)
 
 x_direction = "BALL_RIGHT"
 y_direction = "BALL_UP"
-# move_direction = random.choice(["BALL_UP", "BALL_DOWN", "BALL_LEFT", "BALL_RIGHT"])
 
 while running:
     # poll for events
@@ -47,19 +43,15 @@ while running:
     keys = pygame.key.get_pressed()
 
     if keys[pygame.K_w]:
-        # move_direction = "UP"
         if paddle1.y > 0:
             paddle1.y -= 300 * dt
     if keys[pygame.K_s]:
-        # move_direction = "DOWN"
         if paddle1.y < screen.get_height() - paddle1.height:
             paddle1.y += 300 * dt
     if keys[pygame.K_UP]:
-        # move_direction = "UP"
         if paddle2.y > 0:
             paddle2.y -= 300 * dt
     if keys[pygame.K_DOWN]:
-        # move_direction = "DOWN"
         if paddle2.y < screen.get_height() - paddle2.height:
             paddle2.y += 300 * dt
 
@@ -78,11 +70,19 @@ while running:
             ball.x -= 300 * dt
         else:
             x_direction = "BALL_RIGHT"
+            print("point for player 2")
     if x_direction == "BALL_RIGHT":
         if ball.x < screen.get_width() - ball.radius:
             ball.x += 300 * dt
         else:
             x_direction = "BALL_LEFT"
+            print("point for player 1")
+
+    if ball.is_collision(paddle1):
+        x_direction = "BALL_RIGHT"
+
+    if ball.is_collision(paddle2):
+        x_direction = "BALL_LEFT"
             
     # flip() the display to put your work on screen
     pygame.display.flip()

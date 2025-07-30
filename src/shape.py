@@ -5,5 +5,5 @@ class Shape(ABC):
         self.y = y
 
     @abstractmethod
-    def is_collision(shape):
+    def is_collision(self, shape):
         pass
