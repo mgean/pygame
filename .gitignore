@@ -8,3 +8,6 @@ venv/bin/activate.csh
 venv/bin/activate.fish
 venv/bin/Activate.ps1
 venv/*
+src/__pycache__/circle.cpython-39.pyc
+src/__pycache__/rectangle.cpython-39.pyc
+src/__pycache__/shape.cpython-39.pyc
